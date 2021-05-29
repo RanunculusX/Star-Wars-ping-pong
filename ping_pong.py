@@ -1,17 +1,8 @@
 from pygame import *
 
-'''Необходимые классы'''
-#Подача
-#Заново
-#Окно настроек:
-# Выбор колво раундов
-# Выбор скорости мяча
-# Выбор размера ракетки
-#Музыка
 mixer.init()
 mixer.music.load('bgmusic.mp3')
 mixer.music.play(-1)
-
 collision_sound = mixer.Sound('hit.ogg')
 
 #класс-родитель для спрайтов 
@@ -185,27 +176,13 @@ while game:
 
         # если мяч улетел дальше ракетки, выводим условие проигрыша для первого игрока
         if ball.rect.x < 0:
-            #finish = False
-            #window.blit(lose1, (200, 200))
-            #game_over = False
             score2 += 1
-            #ball.rect.x = racket1.rect.x + 50      
-            #ball.rect.y = racket1.rect.y
             FPS = 80
-            #speed_x *= -1
-            #speed_y *= -1
             P1F = True
         # если мяч улетел дальше ракетки, выводим условие проигрыша для второго игрока
         if ball.rect.x > win_width:
-            #finish = True
-            #window.blit(lose2, (200, 200))
-            #game_over = False
             score1 += 1
-            #ball.rect.x = racket2.rect.x - 50
-            #ball.rect.y = racket2.rect.y
             FPS = 80
-            #speed_x *= -1
-            #speed_y *= -1
             P2F = True
         if score1 == max_score:
             bg()
